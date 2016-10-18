@@ -1,0 +1,47 @@
+<!doctype html>
+<!--[if lt IE 7]><html lang="fr" dir="ltr" class="fr ltr no-js lt-ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 7]><html lang="fr" dir="ltr" class="fr ltr no-js ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 8]><html lang="fr" dir="ltr" class="fr ltr no-js ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 9]><html lang="fr" dir="ltr" class="fr ltr no-js ie9 lt-ie10"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="fr dir="ltr" class="fr ltr no-js"" ng-app="app"><!--<![endif]-->
+    
+    <head>        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="assets/css/app.css" />
+        <title></title>
+    </head>
+    
+    <body ng-controller="MainCtrl">
+       
+        <h1 class="text-center">{{ currentMonth }}</h1>
+        
+        <button ng-click="prevMonth()" class="btn-default">
+            <i class="glyphicon glyphicon-menu-left"></i>
+        </button>        
+        <button ng-click="nextMonth()" class="btn-default">
+            <i class="glyphicon glyphicon-menu-right"></i>
+        </button>
+        
+        <ul class="calendar days-labels center-block">
+            <li ng-repeat="item in daysName" class="text-center">{{ item }}</li>
+        </ul>
+        <ul class="calendar center-block">
+            <li ng-repeat="item in prevMonthDates(results)" class="disabled"></li>
+            <li ng-repeat="item in monthDates(results)" class="text-right">{{ item }}</li>
+            <li ng-repeat="item in nextMonthDates(results)" class="disabled"></li>
+        </ul>
+    
+        
+        <!-- LIBS -->
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular-route/angular-route.js"></script>
+        
+        <!-- SCRIPTS -->
+        <script src="app.js"></script>
+        <script src="services/cal-construct.js"></script>
+        <script src="services/get-today.js"></script>
+        
+    </body>
+    
+</html>
